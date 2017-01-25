@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -22,8 +23,8 @@ namespace SimpleAES
     /// </summary>
     static class Keys
     {
-        private static string Key = "IAmAKey";
-        private static string Vector = "IAmAVector";
+        private static string Key = ConfigurationManager.Load("Keys/Key");
+        private static string Vector = ConfigurationManager.Load("Keys/Vector");
 
         private static UTF8Encoding UTFEncoder = new UTF8Encoding();
 
@@ -33,6 +34,8 @@ namespace SimpleAES
         /// <returns>The bytes of the Key string</returns>
         public static byte[] KeyBytes()
         {
+            if (Key == "key")
+                throw new WarningException("You must change the default keys in config.xml");
             return GetKeyBytes(Key);
         }
         /// <summary>
@@ -41,6 +44,8 @@ namespace SimpleAES
         /// <returns>The bytes of the Vector string</returns>
         public static byte[] VectorBytes()
         {
+            if (Vector == "vector")
+                throw new WarningException("You must change the default keys in config.xml");
             return GetVectorBytes(Vector);
         }
         /// <summary>
