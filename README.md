@@ -1,6 +1,6 @@
 # Simple AES
 C♯ implementation of the [Advanced Encryption Standard](http://aesencryption.net/) (AES) using ```System.Security.Cryptography```.
-It allows ancryption of a string to bytes or sanitized strings and, of course, decryption. Keys can be passed from a configuration file or as arguments. 
+It allows encryption and decryption of string or bytes to string or bytes. Keys can be passed from a configuration file or as arguments. 
 
 ## Terms and conditions
 Permission is granted to anyone to use this software for any purpose on any computer system, and to redistribute it in any way, subject to the following restrictions:
